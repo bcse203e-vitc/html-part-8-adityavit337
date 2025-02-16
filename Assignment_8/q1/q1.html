@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Creator</title>
+    <link rel="stylesheet" href="q1.css">
+</head>
+<body>
+    <div class="container">
+        <input type="number" id="rows" placeholder="Rows" min="1">
+        <input type="number" id="columns" placeholder="Columns" min="1">
+        <button onclick="generateTable()">Generate Table</button>
+        <div id="table-container"></div>
+    </div>
+    <script>
+        function generateTable(){
+        let rowCount=parseInt(document.getElementById("rows").value)
+        let colCount=parseInt(document.getElementById("columns").value)
+        if(isNaN(rowCount)||isNaN(colCount)||rowCount<=0||colCount<=0)return
+        let container=document.getElementById("table-container")
+        container.innerHTML=""
+        let table=document.createElement("table")
+        for(let i=0;i<rowCount;i++){
+        let row=document.createElement("tr")
+        for(let j=0;j<colCount;j++){
+        let cell=document.createElement("td")
+        cell.textContent=`${i+1},${j+1}`
+        let delBtn=document.createElement("button")
+        delBtn.textContent="X"
+        delBtn.onclick=function(){row.remove()}
+        cell.appendChild(delBtn)
+        row.appendChild(cell)
+        }
+        table.appendChild(row)
+        }
+        container.appendChild(table)
+        }
+    </script>
+</body>
+</html>
