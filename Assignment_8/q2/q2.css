@@ -1,0 +1,5 @@
+body{font-family:sans-serif;text-align:center}
+.container{width:40%;margin:20px auto}
+input,button{display:block;width:100%;padding:10px;margin:5px 0}
+p{color:red;margin:0;font-size:14px}
+button{background:blue;color:white;border:none;cursor:pointer}
