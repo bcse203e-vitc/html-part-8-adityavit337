@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="q5.css">
+</head>
+
+<body>
+    <div class="container">
+        <textarea id="text" placeholder="Type here..."></textarea>
+        <p>Word Count: <span id="count">0</span></p>
+        <div id="highlighted-text"></div>
+    </div>
+    <script>
+        document.getElementById("text").addEventListener("input",function(){
+        let text=this.value.trim()
+        let words=text.match(/\b\w+\b/g)||[]
+        document.getElementById("count").textContent=words.length
+        let wordMap={}
+        words.forEach(word=>wordMap[word]=wordMap[word]?wordMap[word]+1:1)
+        let highlighted=text.replace(/\b\w+\b/g,word=>wordMap[word]>1?`<mark>${word}</mark>`:word)
+        document.getElementById("highlighted-text").innerHTML=highlighted
+        })
+    </script>
+</body>
+
+</html>
