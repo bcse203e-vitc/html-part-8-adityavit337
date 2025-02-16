@@ -1,0 +1,6 @@
+body{font-family:sans-serif;text-align:center}
+.container{margin:20px auto;width:50%}
+input,button{margin:5px;padding:10px}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+td{border:1px solid black;padding:10px;position:relative}
+button{background:red;color:white;border:none;cursor:pointer;padding:5px}
