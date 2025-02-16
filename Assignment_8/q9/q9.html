@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="q9.css">
+</head>
+
+<body>
+    <div class="container">
+        <input type="number" id="timeInput" placeholder="Enter seconds" min="1">
+        <button onclick="startTimer()">Start</button>
+        <h1 id="countdown">0</h1>
+    </div>
+    <script>
+        let interval
+        function startTimer(){
+        clearInterval(interval)
+        let time=parseInt(document.getElementById("timeInput").value)
+        if(isNaN(time)||time<=0)return
+        document.getElementById("countdown").textContent=time
+        interval=setInterval(function(){
+        time--
+        document.getElementById("countdown").textContent=time
+        if(time<=0)clearInterval(interval)
+        },1000)
+        }
+    </script>
+</body>
+
+</html>
